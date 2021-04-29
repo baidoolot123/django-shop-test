@@ -1,0 +1,47 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    {% include 'shop/header.html' %}
+    <!-- Body main wrapper start -->
+    <div class="wrapper fixed__footer">
+                
+        <!-- Start Login Register Area -->
+        <div class="htc__login__register bg__white ptb--130" style="background: rgba(0, 0, 0, 0) url(images/bg/5.jpg) no-repeat scroll center center / cover ;">
+            <div class="container">
+                
+                <!-- Start Login Register Content -->
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="htc__login__register__wrap">
+                            
+                            <ul class="login__register__menu" role="tablist">                            
+                                <li role="presentation" class="register"><a  role="tab" data-toggle="tab">Register</a></li>
+                            </ul>        
+
+                            <div id="register" >                                
+                                <form  method="post" action="{% url 'account:user_register' %}" >
+                                    {% csrf_token %}
+                                    {{form.as_p}}
+                                    <input type="submit" value="Create account">
+                                </form>
+
+                                  <div class="htc__social__connect">
+                                    <h2>Or Login With "вставить ссылку на лоигн"</h2>
+                                </div>
+                            </div>
+                            <!-- End Single Content -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Login Register Content -->
+            </div>
+        </div>
+        <!-- End Login Register Area -->
+
+
+    </div>
+    {% include 'shop/footer.html' %}
+</body>
+{% endblock %}
